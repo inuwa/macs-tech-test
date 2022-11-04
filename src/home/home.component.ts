@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AppService } from 'src/app/app.service';
 
 @Component({
@@ -8,10 +8,10 @@ import { AppService } from 'src/app/app.service';
 	styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-	formGroup: FormGroup;
+	formGroup: UntypedFormGroup;
 	constructor(
 		private appService: AppService,
-		private readonly formBuilder: FormBuilder
+		private readonly formBuilder: UntypedFormBuilder
 	) {
 		this.formGroup = this.formBuilder.group({
 			title: ['', Validators.required],
