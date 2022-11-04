@@ -1,0 +1,54 @@
+<div class="govuk-form-group govuk-form-group--error">
+	<form (ngSubmit)="saveUserData()" [formGroup]="formGroup">
+		<fieldset class="govuk-fieldset">
+			<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+				<h1 class="govuk-fieldset__heading">Details</h1>
+			</legend>
+		
+			<div class="govuk-form-group">
+				<ng-container *ngIf="formGroup.get('title')?.hasError('required')">
+					<div id="title-hint" class="govuk-hint">Mr, Mrs., Sir</div>
+					<p id="title-error" class="govuk-error-message">
+						  <span class="govuk-visually-hidden">Error:</span>This field is required
+					</p>
+				</ng-container>
+				<label class="govuk-label" for="title">Title</label>
+				<input class="govuk-input" id="title" name="title" type="text" autocomplete="title1" formControlName="title">
+			</div>
+		
+			<div class="govuk-form-group">
+				<ng-container *ngIf="formGroup.get('firstName')?.hasError('required')">
+					<div id="first-name-hint" class="govuk-hint">Your First Name</div>
+					<p id="first-name-error" class="govuk-error-message">
+						  <span class="govuk-visually-hidden">Error:</span>First Name field is required
+					</p>
+				</ng-container>
+				<label class="govuk-label" for="first-name">
+					First Name
+				</label>
+				<input class="govuk-input" id="first-name" name="first-name" type="text" autocomplete="first-name1" formControlName="firstName">
+			</div>
+		
+			<div class="govuk-form-group">
+				<ng-container *ngIf="formGroup.get('lastName')?.hasError('required')">
+					<div id="last-name-hint" class="govuk-hint">Your Last Name</div>
+					<p id="last-name-error" class="govuk-error-message">
+						  <span class="govuk-visually-hidden">Error:</span>Last Name field is required
+					</p>
+				</ng-container>
+				<label class="govuk-label" for="last-name">Last name</label>
+				<input class="govuk-input" id="last-name" name="last-name" type="text" autocomplete="last-name1" formControlName="lastName">
+			</div>
+		
+			<div class="govuk-form-group">
+				<div *ngIf="formGroup.get('email')?.hasError('email')"id="email-hint" class="govuk-hint">Your email: you@email.com</div>
+				<p *ngIf="formGroup.get('email')?.hasError('required')" id="email-error" class="govuk-error-message">
+      				<span class="govuk-visually-hidden">Error:</span>Email Field is required
+    			</p>
+				<label class="govuk-label" for="email">Email</label>
+				<input class="govuk-input" id="email" name="email" type="text" autocomplete="email1" formControlName="email">
+			</div>
+			<button type="submit" class="govuk-button" data-module="govuk-button" [disabled]="formGroup.invalid">Submit</button>
+		</fieldset>
+	</form>
+</div>

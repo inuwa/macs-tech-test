@@ -1,0 +1,27 @@
+<table class="govuk-table">
+	<caption class="govuk-table__caption govuk-table__caption--m">Users Details</caption>
+	<thead class="govuk-table__head">
+		<tr class="govuk-table__row">
+		<th scope="col" class="govuk-table__header">Name</th>
+		<th scope="col" class="govuk-table__header">Email</th>
+		</tr>
+	</thead>
+	<tbody class="govuk-table__body">
+		<ng-container *ngIf="userDetails.length; else noUserDetails">
+			<ng-container *ngFor="let userDetail of userDetails">
+				<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header">{{ userDetail.title }} {{ userDetail.firstName }} {{ userDetail.lastName}}
+				</th> 
+				<td class="govuk-table__cell">{{ userDetail.email }}</td>
+				</tr>
+			</ng-container>
+		</ng-container>
+		<ng-template #noUserDetails>
+			<tr class="govuk-table__row">
+				<th scope="row" class="govuk-table__header">Enter User Details on Home Page to see it here
+				</th> 
+				<td class="govuk-table__cell"></td>
+				</tr>
+		</ng-template>
+	</tbody>
+</table>
