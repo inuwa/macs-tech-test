@@ -34,9 +34,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+			  "src/scss/all.scss"
             ],
-            "scripts": []
+           "scripts": [
+              "src/assets/javascript/govuk-frontend-3.6.0.min.js"
+            ]
           },
           "configurations": {
             "production": {
